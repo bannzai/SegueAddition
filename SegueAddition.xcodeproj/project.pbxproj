@@ -14,6 +14,7 @@
 		9CC7541A1CC4EBCC00BA2703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC754181CC4EBCC00BA2703 /* LaunchScreen.storyboard */; };
 		9CC754251CC4EBCD00BA2703 /* SegueAdditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC754241CC4EBCD00BA2703 /* SegueAdditionTests.swift */; };
 		9CC754301CC4EBCD00BA2703 /* SegueAdditionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7542F1CC4EBCD00BA2703 /* SegueAdditionUITests.swift */; };
+		9CC7543E1CC4EC4500BA2703 /* SegueAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7543D1CC4EC4500BA2703 /* SegueAddition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9CC7542B1CC4EBCD00BA2703 /* SegueAdditionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegueAdditionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC7542F1CC4EBCD00BA2703 /* SegueAdditionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueAdditionUITests.swift; sourceTree = "<group>"; };
 		9CC754311CC4EBCD00BA2703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CC7543D1CC4EC4500BA2703 /* SegueAddition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueAddition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				9CC7540F1CC4EBCC00BA2703 /* AppDelegate.swift */,
 				9CC754111CC4EBCC00BA2703 /* ViewController.swift */,
+				9CC7543D1CC4EC4500BA2703 /* SegueAddition.swift */,
 				9CC754131CC4EBCC00BA2703 /* Main.storyboard */,
 				9CC754161CC4EBCC00BA2703 /* Assets.xcassets */,
 				9CC754181CC4EBCC00BA2703 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC7543E1CC4EC4500BA2703 /* SegueAddition.swift in Sources */,
 				9CC754121CC4EBCC00BA2703 /* ViewController.swift in Sources */,
 				9CC754101CC4EBCC00BA2703 /* AppDelegate.swift in Sources */,
 			);
