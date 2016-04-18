@@ -23,7 +23,7 @@ class CycleReferenceCheckViewController: UIViewController {
         
         // Manual
         guard identifier == "StandardSegue" else {
-            return
+            fatalError()
         }
         
     }
