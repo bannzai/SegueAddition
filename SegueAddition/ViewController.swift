@@ -41,6 +41,7 @@ class CycleReferenceCheckViewController: UIViewController {
                     fatalError()
             }
             viewController.printer = self.string // Check Cycle Reference
+            viewController.view.backgroundColor = UIColor.yellowColor()
         }
     }
     deinit {
@@ -55,10 +56,11 @@ class SegueSettingStoryboardViewController: UIViewController {
 }
 
 class ManualSegueUseSegueClosureViewController: UIViewController {
-    var printer: String? {
-        didSet {
-            print(printer)
-        }
+    var printer: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(printer)
     }
     deinit {
         print(#function)
