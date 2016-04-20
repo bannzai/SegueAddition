@@ -19,4 +19,26 @@ performSegue("SegueIdentfiier") { segue in
 If you use `performSegue`, it isn't necessary to write `override func prepareForSegue` method.
 Because you can write closure in `performSegue`, what done on `prepareForSegue`!
 
-[SegueAddition](git@github.com:bannzai/SegueAddition.git) is released under the MIT license. See LICENSE for details.
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    fatalError("Do not call")    
+}
+```
+
+Couldn't call `prepareForSegue` passed `performSegueWithIdentifier`?
+No, it's possible to use `performSegueWithIdentifier` method same way.
+
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    print("Call this one") // Print in console "Call this one"
+}
+
+...
+performSegueWithIdentifier("SegueIdentifier", sender: nil)
+...
+```
+
+Only to use `performSegue` case, that not call `prepareForSegue`.
+
+## LICENSE
+[SegueAddition](https://github.com/bannzai/SegueAddition) is released under the MIT license. See LICENSE for details.
