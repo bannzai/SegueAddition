@@ -3,12 +3,12 @@
 Easily way to write perfromSegueWithIdentifier.
 
 ## Usage
-You can use `performSegue(withIdentifier:closure)`  in UIViewController subclass.  
-`performSegue(withIdentifier:closure)` work similar for `performSegueWithIdentifier(identifier:sender)`  
-But, use `performSegue(withIdentifier:closure)` is very smart.
+You can use `performSegue` in UIViewController subclass.  
+`performSegue` work similar for `performSegueWithIdentifier`.  
+But, `performSegue` is cooler compared with using `performSegueWithIdentifier`.
 
 ```swift
-performSegue("SegueIdentfiier") { sengue in
+performSegue("SegueIdentfiier") { segue in
   guard let toViewController = segue.destinationViewController else {
     fatalError()
   }
@@ -16,4 +16,7 @@ performSegue("SegueIdentfiier") { sengue in
 }
 ```
 
-So, you have not to write `prepareForSegue(segue:sender)`.
+If you use `performSegue`, it isn't necessary to write `override func prepareForSegue` method.
+Because you can write closure in `performSegue`, what done on `prepareForSegue`!
+
+[SegueAddition](git@github.com:bannzai/SegueAddition.git) is released under the MIT license. See LICENSE for details.
