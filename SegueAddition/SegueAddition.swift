@@ -9,12 +9,12 @@
 import UIKit
 
 
-private class SegueEventHolder<T: UIViewController> {
+private class SegueEventHolder {
+    let segueClosure:(UIStoryboardSegue -> Void)?
+    
     init(segueClosure: (UIStoryboardSegue -> Void)?) {
         self.segueClosure = segueClosure
     }
-    
-    var segueClosure:(UIStoryboardSegue -> Void)?
 }
 
 
@@ -31,7 +31,7 @@ public extension UIViewController {
         swizzling()
     }
     
-    public func receiveSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    final func receiveSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let event = sender as! SegueEventHolder
         event.segueClosure?(segue)
     }
