@@ -9,6 +9,18 @@ But, `performSegue` is cooler compared with using `performSegueWithIdentifier`.
 
 
 ```swift
+let customString = "CustomString"
+performSegue("SegueIdentfiier") { segue in
+  guard let toViewController = segue.destinationViewController as? CustomViewController else {
+    fatalError()
+  }
+  toViewController.string = customString
+}
+```
+
+same this
+
+```swift
 ...
 let customString = "CustomString"
 performSegueWithIdentifier("SegueIdentfiier", sender: customString)
@@ -23,7 +35,6 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         }
         toViewController.string = customString
 }
-
 ```
 
 If you use `performSegue`, it isn't necessary to write `override func prepareForSegue` method.
