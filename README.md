@@ -9,7 +9,7 @@ But, `performSegue` is cooler compared with using `performSegueWithIdentifier`.
 
 ```swift
 performSegue("SegueIdentfiier") { segue in
-  guard let toViewController = segue.destinationViewController else {
+  guard let toViewController = segue.destinationViewController  as? CustomViewController else {
     fatalError()
   }
   toViewController.title = "title"
