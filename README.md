@@ -7,13 +7,23 @@ You can use `performSegue` in UIViewController subclass.
 `performSegue` work similar for `performSegueWithIdentifier`.  
 But, `performSegue` is cooler compared with using `performSegueWithIdentifier`.
 
+
 ```swift
-performSegue("SegueIdentfiier") { segue in
-  guard let toViewController = segue.destinationViewController  as? CustomViewController else {
-    fatalError()
-  }
-  toViewController.title = "title"
+...
+let customString = "CustomString"
+performSegueWithIdentifier("SegueIdentfiier", sender: customString)
+...
+
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  guard let toViewController = segue.destinationViewController as? CustomViewController,
+            customString = sender as? String
+        where segue.identifier == "SegueIdentfiier"
+        else {
+            fatalError()
+        }
+        toViewController.string = customString
 }
+
 ```
 
 If you use `performSegue`, it isn't necessary to write `override func prepareForSegue` method.
