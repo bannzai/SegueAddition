@@ -10,28 +10,28 @@ import UIKit
 
 
 private class SegueEventHolder {
-    let segueClosure:(UIStoryboardSegue -> Void)?
+    let segueClosure:((UIStoryboardSegue) -> Void)?
     
-    init(segueClosure: (UIStoryboardSegue -> Void)?) {
+    init(segueClosure: ((UIStoryboardSegue) -> Void)?) {
         self.segueClosure = segueClosure
     }
 }
 
 
 public extension UIViewController {
-    private func swizzling() {
-        let prepareForSegue = class_getInstanceMethod(self.dynamicType, #selector(UIViewController.prepareForSegue(_:sender:)))
-        let receiveSegue = class_getInstanceMethod(self.dynamicType, #selector(UIViewController.receiveSegue(_:sender:)))
+    fileprivate func swizzling() {
+        let prepareForSegue = class_getInstanceMethod(type(of: self), #selector(UIViewController.prepare))
+        let receiveSegue = class_getInstanceMethod(type(of: self), #selector(UIViewController.receiveSegue(_:sender:)))
         method_exchangeImplementations(prepareForSegue, receiveSegue)
     }
     
-    public func performSegue(withIdentifier: String, closure: (UIStoryboardSegue -> Void)? = nil) {
+    public func performSegue(_ withIdentifier: String, closure: ((UIStoryboardSegue) -> Void)? = nil) {
         swizzling()
-        performSegueWithIdentifier(withIdentifier, sender: SegueEventHolder(segueClosure: closure))
+        self.performSegue(withIdentifier: withIdentifier, sender: SegueEventHolder(segueClosure: closure))
         swizzling()
     }
     
-    final func receiveSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    final func receiveSegue(_ segue: UIStoryboardSegue, sender: AnyObject?) {
         let event = sender as! SegueEventHolder
         event.segueClosure?(segue)
     }
