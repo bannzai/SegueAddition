@@ -37,19 +37,19 @@ class SegueAdditionUITests: XCTestCase {
         let manualSegueStandardButton = app.buttons["Manual Segue Standard"]
         manualSegueStandardButton.tap()
         
-        let backButton = app.navigationBars["SegueAddition.ManualSegueUseStandardView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
+        let backButton = app.navigationBars["SegueAddition.ManualSegueUseStandardView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0)
         backButton.tap()
         
         let manualSegueUseSegueButton = app.buttons["Manual Segue Use Segue"]
         manualSegueUseSegueButton.tap()
         
-        let backButton2 = app.navigationBars["SegueAddition.ManualSegueUseSegueClosureView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
+        let backButton2 = app.navigationBars["SegueAddition.ManualSegueUseSegueClosureView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0)
         backButton2.tap()
         
         let segueSettingStoryboardButton = app.buttons["Segue Setting Storyboard"]
         segueSettingStoryboardButton.tap()
         
-        let backButton3 = app.navigationBars["SegueAddition.SegueSettingStoryboardView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
+        let backButton3 = app.navigationBars["SegueAddition.SegueSettingStoryboardView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0)
         backButton3.tap()
         manualSegueStandardButton.tap()
         backButton.tap()
@@ -58,7 +58,7 @@ class SegueAdditionUITests: XCTestCase {
         segueSettingStoryboardButton.tap()
         backButton3.tap()
         
-        let backButton4 = app.navigationBars["SegueAddition.CycleReferenceCheckView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
+        let backButton4 = app.navigationBars["SegueAddition.CycleReferenceCheckView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0)
         backButton4.tap()
         toTestButton.tap()
         backButton4.tap()

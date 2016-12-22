@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 class CycleReferenceCheckViewController: UIViewController {
     var string = ""
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let identifier = segue.identifier else {
             return
@@ -28,20 +28,20 @@ class CycleReferenceCheckViewController: UIViewController {
         
     }
     
-    @IBAction func standardSegue(sender: AnyObject) {
-        performSegueWithIdentifier("StandardSegue", sender: nil)
+    @IBAction func standardSegue(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "StandardSegue", sender: nil)
     }
 
-    @IBAction func useSegueClosure(sender: AnyObject) {
+    @IBAction func useSegueClosure(_ sender: AnyObject) {
         string = #function
         performSegue("UseSegueClosure") { segue in
-            guard let viewController = segue.destinationViewController
+            guard let viewController = segue.destination
                 as? ManualSegueUseSegueClosureViewController
                 else {
                     fatalError()
             }
             viewController.printer = self.string // Check Cycle Reference
-            viewController.view.backgroundColor = UIColor.yellowColor()
+            viewController.view.backgroundColor = UIColor.yellow
         }
     }
     deinit {
