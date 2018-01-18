@@ -22,7 +22,7 @@ public extension UIViewController {
     fileprivate func swizzling() {
         let prepareForSegue = class_getInstanceMethod(type(of: self), #selector(UIViewController.prepare))
         let receiveSegue = class_getInstanceMethod(type(of: self), #selector(UIViewController.receiveSegue(_:sender:)))
-        method_exchangeImplementations(prepareForSegue, receiveSegue)
+        method_exchangeImplementations(prepareForSegue!, receiveSegue!)
     }
     
     public func performSegue(_ withIdentifier: String, closure: ((UIStoryboardSegue) -> Void)? = nil) {
@@ -31,7 +31,7 @@ public extension UIViewController {
         swizzling()
     }
     
-    final func receiveSegue(_ segue: UIStoryboardSegue, sender: AnyObject?) {
+    @objc final func receiveSegue(_ segue: UIStoryboardSegue, sender: AnyObject?) {
         let event = sender as! SegueEventHolder
         event.segueClosure?(segue)
     }
