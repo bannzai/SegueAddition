@@ -21,11 +21,9 @@ class CycleReferenceCheckViewController: UIViewController {
             return
         }
         
-        // Manual
-        guard identifier == "StandardSegue" else {
+        if identifier != "StandardSegue" {
             fatalError()
         }
-        
     }
     
     @IBAction func standardSegue(_ sender: AnyObject) {
@@ -40,7 +38,7 @@ class CycleReferenceCheckViewController: UIViewController {
                 else {
                     fatalError()
             }
-            viewController.printer = self.string // Check Cycle Reference
+            viewController.debugString = self.string // Check Cycle Reference
             viewController.view.backgroundColor = UIColor.yellow
         }
     }
@@ -56,11 +54,13 @@ class SegueSettingStoryboardViewController: UIViewController {
 }
 
 class ManualSegueUseSegueClosureViewController: UIViewController {
-    var printer: String?
+    var debugString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(printer)
+        if debugString == nil {
+            fatalError()
+        }
     }
     deinit {
         print(#function)
