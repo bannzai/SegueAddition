@@ -1,12 +1,8 @@
-
 ## SegueAddition
-Easily way to write perfromSegueWithIdentifier.
+Easily way to write perfromSegue(withIdentifier:sender).
 
 ## Usage
-You can use `performSegue` in UIViewController subclass.  
-`performSegue` work similar for `performSegueWithIdentifier`.  
-But, `performSegue` is cooler compared with using `performSegueWithIdentifier`.
-
+You can call `performSegue` with closure.
 
 ```swift
 let customString = "CustomString"
@@ -18,15 +14,14 @@ performSegue("SegueIdentfiier") { segue in
 }
 ```
 
-same this
-
+It has the same meaning.
 ```swift
 ...
 let customString = "CustomString"
 performSegueWithIdentifier("SegueIdentfiier", sender: customString)
 ...
 
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
   guard let toViewController = segue.destinationViewController as? CustomViewController,
             customString = sender as? String
         where segue.identifier == "SegueIdentfiier"
@@ -37,29 +32,8 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 }
 ```
 
-If you use `performSegue`, it isn't necessary to write `override func prepareForSegue` method.
-Because you can write closure in `performSegue`, what done on `prepareForSegue`!
-
-```swift
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    fatalError("Do not call")    
-}
-```
-
-Couldn't call `prepareForSegue` passed `performSegueWithIdentifier`?
-No, it's possible to use `performSegueWithIdentifier` method same way.
-
-```swift
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    print("Call this one") // Print in console "Call this one"
-}
-
-...
-performSegueWithIdentifier("SegueIdentifier", sender: nil)
-...
-```
-
-Only to use `performSegue` case, that not call `prepareForSegue`.
+So, no need to write `prepare(for segue: UIStoryboardSegue, sender: Any?)` again.
+And, It is read and write easy for perform segue event and passing value to next view controller.
 
 ## LICENSE
 [SegueAddition](https://github.com/bannzai/SegueAddition) is released under the MIT license. See LICENSE for details.
