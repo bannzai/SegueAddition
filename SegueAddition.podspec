@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SegueAddition'
-  s.version = '1.1.0'
+  s.version = '1.3.0'
   s.license = 'MIT'
   s.homepage = 'https://github.com/bannzai/'
   s.summary = 'Easily way to write perfromSegueWithIdentifier.'
